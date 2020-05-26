@@ -1,0 +1,33 @@
+{
+    "compileOnSave": false,
+    "buildOnSave": false,
+    "compilerOptions": {
+        "outDir": "./dist/",
+        "lib": [
+            "es6",
+            "dom",
+            "es2017"
+        ],
+        "sourceMap": true,
+        "module": "commonjs",
+        "target": "es5",
+        "jsx": "react",
+        "noUnusedLocals": true,
+        "forceConsistentCasingInFileNames": true,
+        "allowUnusedLabels": true,
+        "pretty": true,
+        "removeComments": true,
+        "allowJs": true,
+        "allowSyntheticDefaultImports": true,
+        "moduleResolution": "node",
+        // "baseUrl": "./src"
+    },
+    "include": [
+        "./src/**/*"
+    ],
+    "exclude": [
+        "node_modules",
+        "dist",
+        "typings"
+    ]
+}

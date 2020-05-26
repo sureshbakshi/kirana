@@ -1,0 +1,54 @@
+// fontFamily
+$font-family-regular: "nova-reg";
+$font-family-rockwen: "rockwen";
+$font-family-semibold: "nova-sbold";
+$font-family-bold: "nova-bold";
+//lmfonts
+$font-family-lmRegular: "lm-reg";
+
+// colors
+$brand-color-primary: #ffe200;
+$brand-color-secondary: #000000;
+
+$black: #000000;
+$white: #ffffff;
+$bg: #f6f6f6;
+// spacings
+$default-space: 2px;
+
+// paddings
+$widgetPadding-for-mobile: 16px;
+$widgetPadding-for-tablet: 20px;
+$widgetPadding-for-desktop: 80px;//24px;
+$widgetPadding-for-desktop-medium: 32px;
+$widgetPadding-for-desktop-large: 48px;
+
+// margins
+$widgetMargin-for-mobile: 20px;
+$widgetMargin-for-tablet: 24px;
+$widgetMargin-for-desktop: 40px;
+$widgetMargin-for-desktop-medium: 54px;
+$widgetMargin-for-desktop-large: 62px;
+
+// each component heading below space
+$eachCompoHeadingMarginBottomMobile: 20px;
+$eachCompoHeadingMarginBottomDesktop: 40px;
+
+// hide
+// [hide-on-desktop=true] {
+//   display: none
+// }
+
+// [hide-on-mobile=true] {
+//   display: block
+// }
+
+// @include screen('mobile'){
+//   [hide-on-mobile=true] {
+//     display: none
+//   }
+
+//   [hide-on-desktop=true] {
+//       display: block
+//   }
+// }

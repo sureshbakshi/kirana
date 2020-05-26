@@ -1,0 +1,395 @@
+@mixin screen($size) {
+  @if $size==desktop {
+    @media only screen and #{$desktop} {
+      @content;
+    }
+  }
+  @if $size==desktopLg {
+    @media only screen and #{$desktopLg} {
+      @content;
+    }
+  }
+  @if $size==tillTab {
+    @media only screen and #{$tillTab} {
+      @content;
+    }
+  } @else if $size==tablet {
+    @media only screen and #{$tablet} {
+      @content;
+    }
+  } @else if $size==mobilePotrait {
+    @media only screen and #{$mobilePotrait} {
+      @content;
+    }
+  } @else if $size==mobileLandscape {
+    @media only screen and #{$mobileLandscape} {
+      @content;
+    }
+  } @else if $size==mobilePotraitSpecific {
+    @media only screen and #{$mobilePotraitSpecific} {
+      @content;
+    }
+  } @else if $size==mobileLandscapeSpecific {
+    @media only screen and #{$mobileLandscapeSpecific} {
+      @content;
+    }
+  } @else if $size==tabletPotrait {
+    @media only screen and #{$tabletPotrait} {
+      @content;
+    }
+  } @else if $size==tabletLandscape {
+    @media only screen and #{$tabletLandscape} {
+      @content;
+    }
+  } @else if $size==tabletPotraitNormal {
+    @media only screen and #{$tabletLandscapeNormal} {
+      @content;
+    }
+  } @else if $size==tabletLandscapeNormal {
+    @media only screen and #{$tabletLandscapeNormal} {
+      @content;
+    }
+  } @else if $size==mobile {
+    @media only screen and #{$mobile} {
+      @content;
+    }
+  } @else {
+    @media only screen and #{$size} {
+      @content;
+    }
+  }
+}
+
+// Using the mixin
+// .wrapper {
+//     @include screen('tablet') {
+//       width: 90%;
+//     }
+//     @include screen('desktop') {
+//       width: 85%;
+//     }
+//   }
+// Output
+//   @media only screen and (min-width: 768px) and (max-width: 1023px) {
+//     .wrapper {
+//       width: 90%;
+//     }
+//   }
+//   @media only screen and (min-width: 1024px) {
+//     .wrapper {
+//       width: 85%;
+//     }
+//   }
+// Define vertical, horizontal, or both position
+@mixin center($position) {
+  position: absolute;
+
+  @if $position== "vertical" {
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  } @else if $position== "horizontal" {
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translate(-50%);
+  } @else if $position== "both" {
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+}
+
+@mixin flexCenter($position) {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+
+  @if $position== "vertical" {
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+  } @else if $position== "horizontal" {
+    justify-content: center;
+  } @else if $position== "both" {
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+// Using the mixin
+//   .foo {
+//     @include center(both);
+//   }
+//   .foo-parent {
+//     position: relative;
+//   }
+// Clearfix mixin
+%clearfix {
+  *zoom: 1;
+
+  &:before,
+  &:after {
+    content: " ";
+    display: table;
+  }
+
+  &:after {
+    clear: both;
+  }
+}
+
+// Usage
+//   .container-with-floated-children {
+//     @extend %clearfix;
+//   }
+//Animation mixin setup
+@mixin keyframes($animation-name) {
+  @-webkit-keyframes #{$animation-name} {
+    @content;
+  }
+
+  @-moz-keyframes #{$animation-name} {
+    @content;
+  }
+
+  @-ms-keyframes #{$animation-name} {
+    @content;
+  }
+
+  @-o-keyframes #{$animation-name} {
+    @content;
+  }
+
+  @keyframes #{$animation-name} {
+    @content;
+  }
+}
+
+@mixin animation($str) {
+  -webkit-animation: #{$str};
+  -moz-animation: #{$str};
+  -ms-animation: #{$str};
+  -o-animation: #{$str};
+  animation: #{$str};
+}
+
+//Usage
+// Define animation name, and properties
+// @include keyframes(fade-out) {
+//   0% { opacity: 1; }
+//   90% { opacity: 0; }
+// }
+// // Add animation to element
+// .element {
+//   width: 100px;
+//   height: 100px;
+//   background: black;
+//   @include animation('fade-out 5s 3');
+// }
+//vendor prefix (property prefix)
+@mixin prefix($property, $value, $vendors: webkit moz ms o, $default: true) {
+  @if $vendors {
+    @each $vendor in $vendors {
+      #{"-" + $vendor + "-" + $property}: #{$value};
+    }
+  }
+  @if $default {
+    #{$property}: #{$value};
+  }
+}
+
+//   Usage
+//   html {
+//     @include prefix('box-sizing', 'border-box');
+//   }
+// html {
+//     @include prefix('box-sizing', 'border-box', webkit moz);
+//   }
+// output
+// html {
+//     -webkit-box-sizing: border-box;
+//     -moz-box-sizing: border-box;
+//     -ms-box-sizing: border-box;
+//     -o-box-sizing: border-box;
+//     box-sizing: border-box;
+// }
+// html {
+//     -moz-box-sizing: border-box;
+//     -webkit-box-sizing: border-box;
+//     box-sizing: border-box;
+// }
+//value prefix
+@mixin ValuePrefix(
+  $property,
+  $value,
+  $vendors: webkit moz ms o,
+  $default: true
+) {
+  @if $vendors {
+    @each $vendor in $vendors {
+      $property: #{"-" + $vendor + "-" + $value};
+    }
+  }
+
+  @if $default {
+    #{$property}: #{$value};
+  }
+}
+
+//  Usage
+///   .element {
+///     @include value-prefixer(cursor, grab, webkit moz);
+///   }
+///
+/// Output
+///   .element {
+///     cursor: -webkit-grab;
+///     cursor: -moz-grab;
+///     cursor: grab;
+///   }
+@mixin ellipsis($width: 100%, $display: inline-block) {
+  display: $display;
+  max-width: $width;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: normal;
+}
+
+//   Usage
+///   .element {
+///     @include ellipsis;
+///   }
+///
+///  Output
+///   .element {
+///     display: inline-block;
+///     max-width: 100%;
+///     overflow: hidden;
+///     text-overflow: ellipsis;
+///     white-space: nowrap;
+///     word-wrap: normal;
+///   }
+
+@mixin iconFont {
+  display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+}
+
+// create  Traingle
+@mixin triangle($direction, $width, $height, $color) {
+  @if not
+    index(
+      "up" "up-right" "right" "down-right" "down" "down-left" "left" "up-left",
+      $direction
+    )
+  {
+    @error "Direction must be `up`, `up-right`, `right`, `down-right`, "+"`down`, `down-left`, `left` or `up-left`.";
+  } @else if not _is-color($color) {
+    @error "`#{$color}` is not a valid color for the `$color` argument in "+"the `triangle` mixin.";
+  } @else {
+    border-style: solid;
+    height: 0;
+    width: 0;
+
+    @if $direction== "up" {
+      border-color: transparent transparent $color;
+      border-width: 0 ($width / 2) $height;
+    } @else if $direction== "up-right" {
+      border-color: transparent $color transparent transparent;
+      border-width: 0 $width $width 0;
+    } @else if $direction== "right" {
+      border-color: transparent transparent transparent $color;
+      border-width: ($height / 2) 0 ($height / 2) $width;
+    } @else if $direction== "down-right" {
+      border-color: transparent transparent $color;
+      border-width: 0 0 $width $width;
+    } @else if $direction== "down" {
+      border-color: $color transparent transparent;
+      border-width: $height ($width / 2) 0;
+    } @else if $direction== "down-left" {
+      border-color: transparent transparent transparent $color;
+      border-width: $width 0 0 $width;
+    } @else if $direction== "left" {
+      border-color: transparent $color transparent transparent;
+      border-width: ($height / 2) $width ($height / 2) 0;
+    } @else if $direction== "up-left" {
+      border-color: $color transparent transparent;
+      border-width: $width $width 0 0;
+    }
+  }
+}
+
+//  Usage
+///   .element {
+///     &::before {
+///       @include triangle("up", 2rem, 1rem, #b25c9c);
+///       content: "";
+///     }
+///   }
+///
+/// Output
+///   .element::before {
+///     border-style: solid;
+///     height: 0;
+///     width: 0;
+///     border-color: transparent transparent #b25c9c;
+///     border-width: 0 1rem 1rem;
+///     content: "";
+///   }
+@mixin optional-at-root($sel) {
+  @at-root #{if(not &, $sel, selector-append(&, $sel))} {
+    @content;
+  }
+}
+
+@mixin placeholder {
+  @include optional-at-root("::-webkit-input-placeholder") {
+    @content;
+  }
+
+  @include optional-at-root(":-moz-placeholder") {
+    @content;
+  }
+
+  @include optional-at-root("::-moz-placeholder") {
+    @content;
+  }
+
+  @include optional-at-root(":-ms-input-placeholder") {
+    @content;
+  }
+}
+
+@mixin res-styles($fs-map, $fs-breakpoints: $breakpoints) {
+  @each $fs-breakpoint, $fs-res-styles in $fs-map {
+    @if $fs-breakpoint == null {
+      @include make-res-styles($fs-res-styles);
+    } @else {
+      @if map-has-key($fs-breakpoints, $fs-breakpoint) {
+        $fs-breakpoint: map-get($fs-breakpoints, $fs-breakpoint);
+      }
+      @media screen and (min-width: $fs-breakpoint) {
+        @include make-res-styles($fs-res-styles);
+      }
+    }
+  }
+}
+
+// Utility function for mixin font-size
+@mixin make-res-styles($fs-res-styles) {
+  @each $prop, $val in $fs-res-styles {
+    #{$prop}: $val;
+  }
+}

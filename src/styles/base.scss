@@ -1,0 +1,18 @@
+//libraries
+@import './generic/bootstarp.scss';
+@import './generic/variables.scss';
+@import './generic/responsive-styles.scss';
+@import './generic/react-slick.scss';
+@import './generic/animate';
+@import './generic/toastify';
+@import './generic/btn-animated.scss';
+//global styles
+@import './generic/icons.scss';
+@import './generic/mixins.scss';
+//pages
+@import './common/notFound';
+
+@import './app.scss';
+@import './auth/login';
+
+

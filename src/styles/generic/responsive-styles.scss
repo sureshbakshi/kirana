@@ -1,0 +1,329 @@
+
+// Define the breakpoints
+$desktopMd: "(min-width: 1024px)";
+$tillTab: "only screen and (max-width: 1024px)";
+$tablet: "(min-width: 768px) and (max-width: 1023px)";
+$mobilePotrait: "(max-width: 767px) and (orientation : portrait)";
+$mobileLandscape: "(max-width: 767px) and (orientation : landscape)";
+$mobilePotraitSpecific: "(max-width: 767px) and (orientation : portrait) and (max-device-aspect-ratio: 1/1) ";
+$mobileLandscapeSpecific: " (max-width: 767px) and (orientation : landscape)  and (min-device-aspect-ratio: 1/1) ";
+$tabletPotrait: "(min-width: 768px) and (max-width: 1023px) and (orientation : portrait) and (max-device-aspect-ratio: 13/9),(max-aspect-ratio: 13/9) ";
+$tabletLandscape: "(min-width: 768px) and (max-width: 1024px) and (orientation : landscape)  and (min-device-aspect-ratio: 13/9),(min-aspect-ratio: 13/9)  ";
+$tabletPotraitNormal: "(min-width: 768px) and (max-width: 1023px) and (orientation : portrait) ";
+$tabletLandscapeNormal: "(min-width: 768px) and (max-width: 1024px) and (orientation : landscape)";
+$desktopLg: "(min-width: 1661px)";
+$mobile: "(max-width: 767px)";
+
+$breakpoints: (
+  mobile: 320px,
+  tablet: 768px,
+  desktopXs: 1281px,
+  desktopMd: 1367px,
+  desktopLg: 1441px
+);
+
+$header-section-padding: (
+  mobile: (
+    padding:  $default-space*10 $widgetPadding-for-mobile
+  ),
+  tablet: (
+    padding: 0 $widgetPadding-for-tablet
+  ),
+  desktopXs: (
+    padding: $default-space*10 $widgetPadding-for-desktop
+  ),
+  desktopMd: (
+    padding: 0 $widgetPadding-for-desktop-medium
+  ),
+  desktopLg: (
+    padding: 0 $widgetPadding-for-desktop-large
+  )
+);
+
+$global-margin-padding:(
+  mobile: (
+    padding: 0 $widgetPadding-for-mobile,
+    margin-bottom: $widgetMargin-for-mobile
+  ),
+  tablet: (
+    padding: 0 $widgetPadding-for-tablet,
+    margin-bottom: $widgetMargin-for-tablet
+  ),
+  desktopXs: (
+    padding: 0 $widgetPadding-for-desktop,
+    margin-bottom: $widgetMargin-for-desktop
+  ),
+  desktopMd: (
+    padding: 0 $widgetPadding-for-desktop-medium,
+    margin-bottom: $widgetMargin-for-desktop-medium
+  ),
+  desktopLg: (
+    padding: 0 $widgetPadding-for-desktop-large,
+    margin-bottom: $widgetMargin-for-desktop-large
+  )
+);
+
+$each-component-heading-margin:(
+  mobile: (
+    margin-bottom: $eachCompoHeadingMarginBottomMobile
+  ),
+  tablet: (
+    margin-bottom: $eachCompoHeadingMarginBottomMobile
+  ),
+  desktopXs: (
+    margin-bottom: $eachCompoHeadingMarginBottomDesktop
+  ),
+  desktopMd: (
+    margin-bottom: $eachCompoHeadingMarginBottomDesktop
+  ),
+  desktopLg: (
+    margin-bottom: $eachCompoHeadingMarginBottomDesktop
+  )
+);
+
+// 1920, 1366, 1280, mobile
+// h1 = 95px, 80px, 80px, 45px
+// h2 = 24px
+// h3 = 60px, 40px, 40px, 20px
+// subheading, footer subheading = 38px  (how to play),32px, 18px
+// p =32px, 24px,22px,14px
+// p2 = 24px, 20px, 20px, 12px
+// page level margin = 140px, 80px, 60px,
+// disclaimer
+
+// head = 32px, 24px, 22px,
+// p=24px, 20px, 20px
+
+$h1-font-size: (
+  mobile: (
+    pfont-size: 32px,
+    line-height: 48px
+  ),
+  tablet: (
+    font-size: 36px,
+    line-height: 46px
+  ),
+  desktopXs: (
+    font-size: 48px,
+    line-height: 56px
+  ),
+  desktopMd: (
+    font-size: 56px,
+    line-height: 72px
+  ),
+  desktopLg: (
+    font-size: 56px,
+    line-height: 72px
+  )
+);
+$h2-font-size: (
+  mobile: (
+    font-size: 24px,
+    line-height: 32px
+  ),
+  tablet: (
+    font-size: 26px,
+    line-height: 36px
+  ),
+  desktopXs: (
+    font-size: 32px,
+    line-height: 48px
+  ),
+  desktopMd: (
+    font-size: 40px,
+    line-height: 48px
+  ),
+  desktopLg: (
+    font-size: 40px,
+    line-height: 48px
+  )
+);
+$sub-head-font-size: (
+  mobile: (
+    font-size: 20px,
+    line-height: 24px
+  ),
+  tablet: (
+    font-size: 24px,
+    line-height: 36px
+  ),
+  desktopXs: (
+    font-size: 24px,
+    line-height: 36px
+  ),
+  desktopMd: (
+    font-size: 32px,
+    line-height: 48px
+  ),
+  desktopLg: (
+    font-size: 32px,
+    line-height: 48px
+  )
+);
+$card-title-font-size: (
+  mobile: (
+    font-size: 16px,
+    line-height: 24px
+  ),
+  tablet: (
+    font-size: 18px,
+    line-height: 24px
+  ),
+  desktopXs: (
+    font-size: 24px,
+    line-height: 36px
+  ),
+  desktopMd: (
+    font-size: 32px,
+    line-height: 48px
+  ),
+  desktopLg: (
+    font-size: 32px,
+    line-height: 48px
+  )
+);
+
+$p-font-size: (
+  mobile: (
+    font-size: 14px,
+    line-height: 20px
+  ),
+  tablet: (
+    font-size: 16px,
+    line-height: 24px
+  ),
+  desktopXs: (
+    font-size: 16px,
+    line-height: 24px
+  ),
+  desktopMd: (
+    font-size: 24px,
+    line-height: 36px
+  ),
+  desktopLg: (
+    font-size: 24px,
+    line-height: 36px
+  )
+);
+$p2-font-size: (
+  mobile: (
+    font-size: 12px,
+    line-height: 18px
+  ),
+  tablet: (
+    font-size: 16px,
+    line-height: 24px
+  ),
+  desktopXs: (
+    font-size: 16px,
+    line-height: 24px
+  ),
+  desktopMd: (
+    font-size: 20px,
+    line-height: 30px
+  ),
+  desktopLg: (
+    font-size: 20px,
+    line-height: 30px
+  )
+);
+$footer-title-font-size: (
+  mobile: (
+    font-size: 16px,
+    line-height: 24px
+  ),
+  tablet: (
+    font-size: 24px,
+    line-height: 36px
+  ),
+  desktopXs: (
+    font-size: 24px,
+    line-height: 36px
+  ),
+  desktopMd: (
+    font-size: 32px,
+    line-height: 48px
+  ),
+  desktopLg: (
+    font-size: 32px,
+    line-height: 48px
+  )
+);
+$disclaim-head-font-size: (
+  mobile: (
+    font-size: 14px,
+    line-height: 20px
+  ),
+  tablet: (
+    font-size: 16px,
+    line-height: 24px
+  ),
+  desktopXs: (
+    font-size: 16px,
+    line-height: 24px
+  ),
+  desktopMd: (
+    font-size: 28px,
+    line-height: 40px
+  ),
+  desktopLg: (
+    font-size: 28px,
+    line-height: 40px
+  )
+);
+$container-styles: (
+  mobile: (
+    padding: 0 15px
+  ),
+  tablet: (
+    padding:0 40px
+  ),
+  desktopXs: (
+    padding: 0 60px
+  ),
+  desktopMd: (
+    padding: 0 80px
+  ),
+  desktopLg: (
+    padding: 0 140px
+  )
+);
+
+
+
+// individual container
+$sports-block:(
+  mobile: (
+    padding: 15px 15px 20px
+  ),
+  tablet: (
+    padding: 20px 40px 40px
+  ),
+  desktopXs: (
+    padding: 30px 60px 60px
+  ),
+  desktopMd: (
+    padding: 30px 80px 60px
+  ),
+  desktopLg: (
+    padding: 40px 140px 75px
+  )
+);
+
+$promo-block:(
+  mobile: (
+    padding: 20px 15px
+  ),
+  tablet: (
+    padding: 40px 40px
+  ),
+  desktopXs: (
+    padding: 30px 60px
+  ),
+  desktopMd: (
+    padding: 40px 80px
+  ),
+  desktopLg: (
+    padding: 40px 140px
+  )
+);
