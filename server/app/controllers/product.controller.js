@@ -1,5 +1,6 @@
 const db = require("../models");
 const Product = db.product;
+const upload = require("../middlewares/upload");
 
 exports.createProduct = async (req, res) => {
     const product = new Product({
@@ -76,4 +77,25 @@ exports.getAllProducts =async (req, res) => {
             { _id: -1 };
         const products = await Product.find({ ...category, ...searchKeyword }).sort(sortOrder);
         res.send(products);
+}
+
+exports.multipleUpload =async (req, res) => {
+    try {
+        await upload(req, res);
+        console.log(req.files);
+    
+        if (req.files.length <= 0) {
+          return res.status(400).send({ message: 'Please upload atleast one image', data: req.files });
+        }
+        if (req.files && req.files.length > 0) {
+            return res.status(200).send({ message: 'images uploaded sucessfully', data: req.files });
+          }
+      } catch (error) {
+        console.log(error);
+    
+        if (error.code === "LIMIT_UNEXPECTED_FILE") {
+          return res.send("Too many files to upload.");
+        }
+        return res.send(`Error when trying upload many files: ${error}`);
+      }
 }

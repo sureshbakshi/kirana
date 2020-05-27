@@ -15,4 +15,6 @@ module.exports = function (app) {
     app.put("/api/auth/createProduct/:id", [authJwt.verifyToken, authJwt.isAdmin], controller.updateProduct)
     app.get("/api/auth/product/:id", controller.getProductDetail)
     app.get("/api/auth/product", controller.getAllProducts);
+    app.post("/api/auth/multiple-upload",  controller.multipleUpload);
+
 };
