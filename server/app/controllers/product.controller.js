@@ -5,14 +5,15 @@ const upload = require("../middlewares/upload");
 exports.createProduct = async (req, res) => {
     const product = new Product({
         name: req.body.name,
-        price: req.body.price,
         image: req.body.image,
         brand: req.body.brand,
-        category: req.body.category,
-        countInStock: req.body.countInStock,
+        department: req.body.department,
+        category: req.body.category ,
+        productItem: req.body.productItem,
         description: req.body.description,
         rating: req.body.rating,
         numReviews: req.body.numReviews,
+        active: req.body.active
       });
       const newProduct = await product.save();
       if (newProduct) {

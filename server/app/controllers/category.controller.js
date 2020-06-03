@@ -1,9 +1,10 @@
 const db = require("../models");
 const Category = db.categoryModel;
-
+const constants =  require("../util/constants")
 exports.createCategory = async (req, res) => {
     const category = new Category({
         category: req.body.categoryName,
+        department: req.body.departmentId || constants.DEFAULT_DEPARTMENT
     });
     const newCategory = await category.save();
     if (newCategory) {
