@@ -64,7 +64,7 @@
     "eslint-loader": "^3.0.2",
     "eslint-plugin-prettier": "^3.1.1",
     "history": "^4.10.1",
-    "immer": "^4.0.1",
+    "immer": "^9.0.6",
     "install": "^0.13.0",
     "lodash": "^4.17.15",
     "make-dir-webpack-plugin": "^0.1.0",
